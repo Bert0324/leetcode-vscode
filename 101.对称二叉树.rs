@@ -62,7 +62,26 @@ use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
     pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
-        
+        pub fn check_node(
+            left: Option<Rc<RefCell<TreeNode>>>,
+            right: Option<Rc<RefCell<TreeNode>>>,
+        ) -> bool {
+            match (left, right) {
+                (Some(l), Some(r)) => {
+                    l.borrow().val == r.borrow().val
+                        && check_node(l.borrow().left.clone(), r.borrow().right.clone())
+                        && check_node(l.borrow().right.clone(), r.borrow().left.clone())
+                }
+                (None, None) => true,
+                _ => false,
+            }
+        }
+        if root.is_none() {
+            return true;
+        }
+        let left = root.as_ref().and_then(|v| v.borrow().left.clone());
+        let right = root.as_ref().and_then(|v| v.borrow().right.clone());
+        return check_node(left, right);
     }
 }
 // @lc code=end
