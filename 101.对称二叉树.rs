@@ -62,7 +62,10 @@ use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
     pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
-        pub fn check_node(
+        if root.is_none() {
+            return true;
+        }
+        fn check_node(
             left: Option<Rc<RefCell<TreeNode>>>,
             right: Option<Rc<RefCell<TreeNode>>>,
         ) -> bool {
@@ -75,9 +78,6 @@ impl Solution {
                 (None, None) => true,
                 _ => false,
             }
-        }
-        if root.is_none() {
-            return true;
         }
         let left = root.as_ref().and_then(|v| v.borrow().left.clone());
         let right = root.as_ref().and_then(|v| v.borrow().right.clone());
