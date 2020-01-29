@@ -55,7 +55,23 @@ use std::rc::Rc;
 impl Solution {
     pub fn preorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
         // root -> left -> right (find a node)
-        
+        let mut container = vec![];
+        if root.is_none() {
+            return container;
+        }
+        fn fill_vec(node: Option<Rc<RefCell<TreeNode>>>, list: &mut Vec<i32>) -> Vec<i32> {
+            match (node) {
+                Some(n) => {
+                    list.push(n.borrow().val);
+                    return fill_vec(
+                        n.borrow().right.clone(),
+                        &mut fill_vec(n.borrow().left.clone(), list),
+                    );
+                }
+                None => list.to_vec(),
+            }
+        }
+        return fill_vec(root, &mut container);
     }
 }
 // @lc code=end
