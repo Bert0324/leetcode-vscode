@@ -77,7 +77,7 @@ impl Solution {
     }
     fn balanced_dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> Result<i32, ()> {
         if let Some(ro) = root {
-            let lh = Self::balanced_dfs(&ro.borrow().left)?;
+            let lh = Self::balanced_dfs(&ro.borrow().left)?; // ? => return Error if not match
             let rh = Self::balanced_dfs(&ro.borrow().right)?;
             if (lh - rh).abs() > 1 {
                 Err(())
