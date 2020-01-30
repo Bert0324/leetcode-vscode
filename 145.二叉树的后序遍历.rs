@@ -61,14 +61,17 @@ impl Solution {
         fn fill_vec(node: Option<Rc<RefCell<TreeNode>>>, list: &mut Vec<i32>) -> Vec<i32> {
             match (node) {
                 Some(n) => {
-                    let mut children_filled = fill_vec(n.borrow().right.clone(), &mut fill_vec(n.borrow().left.clone(), list));
+                    let mut children_filled = fill_vec(
+                        n.borrow().right.clone(),
+                        &mut fill_vec(n.borrow().left.clone(), list),
+                    );
                     children_filled.push(n.borrow().val);
                     children_filled
                 }
                 None => list.to_vec(),
             }
         }
-        return fill_vec(root, &mut container);
+        fill_vec(root, &mut container)
     }
 }
 // @lc code=end
