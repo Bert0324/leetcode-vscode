@@ -75,7 +75,7 @@ impl Solution {
     pub fn is_balanced(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         Self::balanced_dfs(&root).is_ok()
     }
-    fn balanced_dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> Result<i32,()> {
+    fn balanced_dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> Result<i32, ()> {
         if let Some(ro) = root {
             let lh = Self::balanced_dfs(&ro.borrow().left)?;
             let rh = Self::balanced_dfs(&ro.borrow().right)?;
@@ -84,7 +84,6 @@ impl Solution {
             } else {
                 Ok(1 + std::cmp::max(lh, rh))
             }
-            
         } else {
             Ok(0)
         }

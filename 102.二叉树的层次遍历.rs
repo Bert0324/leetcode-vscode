@@ -58,6 +58,20 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {}
+    pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
+        let mut container: Vec<Vec<i32>> = vec![];
+        if root.is_none() {
+            return container;
+        }
+        Self::fill_vec(root, &mut container)
+    }
+
+    fn fill_level_vec(node: Option<Rc<RefCell<TreeNode>>>, list: &mut Vec<i32>) -> Vec<i32> {
+        vec![]
+    }
+
+    fn fill_vec(root: Option<Rc<RefCell<TreeNode>>>, list: &mut Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        vec![]
+    }
 }
 // @lc code=end

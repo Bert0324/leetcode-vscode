@@ -58,17 +58,18 @@ impl Solution {
         if root.is_none() {
             return container;
         }
-        fn fill_vec(node: Option<Rc<RefCell<TreeNode>>>, list: &mut Vec<i32>) -> Vec<i32> {
-            match (node) {
-                Some(n) => {
-                    let mut left_filled = fill_vec(n.borrow().left.clone(), list);
-                    left_filled.push(n.borrow().val);
-                    return fill_vec(n.borrow().right.clone(), &mut left_filled);
-                }
-                None => list.to_vec(),
+        Self::fill_vec(root, &mut container)
+    }
+
+    fn fill_vec(node: Option<Rc<RefCell<TreeNode>>>, list: &mut Vec<i32>) -> Vec<i32> {
+        match (node) {
+            Some(n) => {
+                let mut left_filled = Self::fill_vec(n.borrow().left.clone(), list);
+                left_filled.push(n.borrow().val);
+                Self::fill_vec(n.borrow().right.clone(), &mut left_filled)
             }
+            None => list.to_vec(),
         }
-        return fill_vec(root, &mut container);
     }
 }
 // @lc code=end
