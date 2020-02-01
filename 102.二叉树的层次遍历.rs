@@ -81,11 +81,11 @@ impl Solution {
                 queue.push_back((lev + 1, node.borrow().right.clone()));
             }
         }
-    
+
         if !sub_vec.is_empty() {
             ret.push(sub_vec);
         }
-    
+
         ret
     }
 }
