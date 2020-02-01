@@ -60,7 +60,7 @@ var pathInZigZagTree = function(label) {
      */
     const ret = [label];
     while (label !== 1) {
-        label = (label >>> 1) ^(1 << (label >>> 1).toString(2).length - 1) - 1;
+        label = (label >>> 1) ^ (1 << (label >>> 1).toString(2).length - 1) - 1;
         ret.unshift(label);
     }
     return ret;
