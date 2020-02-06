@@ -29,9 +29,33 @@
  */
 
 // @lc code=start
+use std::cmp::max;
 impl Solution {
     pub fn max_sub_array(nums: Vec<i32>) -> i32 {
+        // https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-cshi-xian-si-chong-jie-fa-bao-li-f/
+        // greedy
+        // let mut ret = nums[0];
+        // let mut current_sum = 0;
+        // for num in nums {
+        //     if current_sum > 0 {
+        //         current_sum += num;
+        //     } else {                    // when this part's sum is less than 0, it means this part is meaningless for the whole part
+        //         current_sum = num;
+        //     }
+        //     ret = max(ret, current_sum);
+        // }
+        // ret
+
         // dynamic programming
+        let mut ret = nums[0];
+        let mut last = nums[0];
+        for (i, num) in nums.iter().enumerate() {
+            if i != 0 {
+                last = max(*num, last + num);
+                ret = max(ret, last);
+            }
+        }
+        ret
     }
 }
 // @lc code=end

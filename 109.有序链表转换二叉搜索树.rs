@@ -75,7 +75,7 @@ impl Solution {
         let mut cnt = 0;
         while let Some(boxed) = ptr {
             cnt += 1;
-            ptr = &boxed.next 
+            ptr = &boxed.next;
         }
         let mut ptr = &head;
         Self::_list_to_bst(&mut ptr, cnt)
