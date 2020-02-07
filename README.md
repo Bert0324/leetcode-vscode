@@ -1,4 +1,4 @@
-# Algorithm + Rust + JS
+# Algorithm + Rust + JS, following CLRS
 
 ## Data Structure
 
