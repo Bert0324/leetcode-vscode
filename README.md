@@ -6,7 +6,9 @@
 
 1. Traverse ( DFS + BFS )
 2. Balance
-3. extension: binary search tree, avl, RB tree.
+3. extension: binary search tree, avl tree, RB tree.
+
+### Union-Find
 
 ### Hash Table
 

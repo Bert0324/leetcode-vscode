@@ -60,6 +60,34 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    pub fn generate_trees(n: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {}
+    pub fn generate_trees(n: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
+        if n == 0 {
+            vec![]
+        } else {
+            Self::get_tree_from_root(1, n)
+        }
+    }
+
+    fn get_tree_from_root(start: i32, end: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
+        if start > end {
+            vec![None] // MARK: empty node
+        } else {
+            let mut ret = vec![];
+            for i in start..end + 1 {
+                let left_nodes = Self::get_tree_from_root(start, i - 1);
+                let right_nodes = Self::get_tree_from_root(i + 1, end);
+                for left_node in left_nodes.iter() {
+                    for right_node in right_nodes.iter() {
+                        ret.push(Some(Rc::new(RefCell::new(TreeNode {
+                            val: i,
+                            left: left_node.clone(),
+                            right: right_node.clone(),
+                        }))));
+                    }
+                }
+            }
+            ret
+        }
+    }
 }
 // @lc code=end
