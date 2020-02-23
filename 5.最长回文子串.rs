@@ -44,6 +44,7 @@ impl Solution {
             let mut left = i;
             let mut right = i;
             while right + 1 < len && s[right + 1] == s[left] {
+                // same and continuous chars
                 right += 1;
             }
             while right + 1 < len && left > 0 && s[right + 1] == s[left - 1] {
@@ -52,6 +53,7 @@ impl Solution {
             }
 
             if right - left > end - start {
+                // save max result
                 end = right;
                 start = left;
             }
