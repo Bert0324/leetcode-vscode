@@ -40,7 +40,7 @@
 * 输入总是有效的。你可以假设除法运算中不会出现除数为0的情况，且不存在任何矛盾的结果。
 *
 */
-
+use std::collections::HashMap;
 // @lc code=start
 impl Solution {
     pub fn calc_equation(
@@ -48,6 +48,7 @@ impl Solution {
         values: Vec<f64>,
         queries: Vec<Vec<String>>,
     ) -> Vec<f64> {
+        // Union Find
     }
 }
 // @lc code=end
