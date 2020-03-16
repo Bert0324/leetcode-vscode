@@ -28,3 +28,9 @@
 
 1. Adjacency List
 2. Adjacency Matrix
+3. Minimum Spanning Tree
+4. shortest paths: Floyd–Warshall algorithm
+
+## Graphics
+
+### DDA
