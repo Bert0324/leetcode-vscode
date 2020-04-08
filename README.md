@@ -20,6 +20,12 @@
 
 ### Divide-and-Conquer Method
 
+3 steps:
+
+1. the meaning of each element
+2. the relationship between elements
+3. initial situation
+
 ## Design
 
 ### LRU cache
