@@ -32,7 +32,5 @@ impl Solution {
         }
         count == num_courses
     }
-
 }
 // @lc code=end
-
